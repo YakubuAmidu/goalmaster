@@ -50,7 +50,7 @@ class SignUp extends Component{
       </button>
       </div>
       <div>{this.state.error.message}</div>
-      <div><Link to="/signin">Sign in instead</Link></div>
+      <div><Link to="/signin">Already a user ? Sign in instead</Link></div>
       </div>
     )
   }

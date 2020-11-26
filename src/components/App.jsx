@@ -5,6 +5,12 @@ class App extends Component {
     return (
       <div>
       <h1>Apps</h1>
+      <button
+      className="btn btn-danger"
+      onClick={() => this.signOut()}
+      >
+      Sign out
+      </button>
       </div>
     )
   };

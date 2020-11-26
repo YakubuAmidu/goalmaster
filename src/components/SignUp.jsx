@@ -14,8 +14,6 @@ class SignUp extends Component{
     }
 
     signUp(){
-      console.log("this.state", this.state);
-
       const { email, password } = this.state;
       firebaseApp.auth().createUserWithEmailAndPassword(email, password)
       .catch(error => {
@@ -30,12 +28,14 @@ class SignUp extends Component{
       <div className="form-group">
       <input
       className="form-control"
+      style={{ marginRight: "5px", marginBottom: "5px" }}
       type="text"
       placeholder="email"
       onChange={event => this.setState({ email: event.target.value })}
       />
       <input
       className="form-control"
+      style={{ marginRight: "5px", marginBottom: "5px" }}
       type="password"
       placeholder="password"
       onChange={event => this.setState({ password: event.target.value })}

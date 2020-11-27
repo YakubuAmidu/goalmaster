@@ -3,7 +3,6 @@ import { firebaseApp } from "../firebase";
 
 class App extends Component {
     signOut(){
-      console.log("this.state", this.state);
       firebaseApp.auth().signOut();
     }
 

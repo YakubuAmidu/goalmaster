@@ -11,7 +11,7 @@ export default (state = user, action) => {
     user = {
       email
     }
-    reuturn user;
+    return user;
     default:
     return state;
   }

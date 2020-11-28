@@ -1,51 +1,51 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { goalRef } from "../firebase";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { goalRef } from '../firebase';
 
-class AddGoal extends Component{
-  constructor(props){
+class AddGoal extends Component {
+  constructor(props) {
     super(props);
     this.state = {
-      title: " "
+      title: ''
     }
   }
 
-  addGoal(){
-    console.log("this.state", this.state);
+  addGoal() {
+    console.log("this", this);
+    const { email } = this.props.user;
     const { title } = this.state;
-    const { email } = this.props;
-    goalRef.push({ email, title });
+    goalRef.push({email, title})
   }
 
-  render(){
-    return(
-      <div className="form-inline">
+  render() {
+
+    return (
+      <form className="form-inline">
         <div className="form-group">
-        <input
-        type="text"
-        placeholder="Add a goal"
-        className="form-control"
-        style={{ marginRight: "5%" }}
-        onChange={event => this.setState({ title: event.target.value })}
-        />
-        <button
-        type="button"
-        className="btn btn-success"
-        onClick={() => this.addGoal()}
-        >
-        submit
-        </button>
+          <input
+            type="text" placeholder="Add a goal"
+            onChange={event => this.setState({title: event.target.value})}
+            className="form-control"
+            style={{marginRight: '5px'}}
+          />
+          <button
+            onClick={() => this.addGoal()}
+            className="btn btn-success"
+            type="button"
+          >
+            Submit
+          </button>
         </div>
-      </div>
-    );
-  };
-}
-
-function mapStateToProps(state){
-  const { email } = this.state;
-  return {
-    email
+      </form>
+    )
   }
 }
 
-export default connect(mapStateToProps, null)(AddGoal);
+function mapStateToProps(state) {
+  const { user } = state;
+  return {
+    user
+  }
+}
+
+export default connect(mapStateToProps, null)(AddGoal)

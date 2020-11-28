@@ -1,6 +1,22 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { goalRef } from "../firebase";
 
 class AddGoal extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      title: " "
+    }
+  }
+
+  addGoal(){
+    console.log("this.state", this.state);
+    const { title } = this.state;
+    const { email } = this.props;
+    goalRef.push({ email, title });
+  }
+
   render(){
     return(
       <div className="form-inline">
@@ -10,10 +26,12 @@ class AddGoal extends Component{
         placeholder="Add a goal"
         className="form-control"
         style={{ marginRight: "5%" }}
+        onChange={event => this.setState({ title: event.target.value })}
         />
         <button
         type="button"
         className="btn btn-success"
+        onClick={() => this.addGoal()}
         >
         submit
         </button>
@@ -23,4 +41,11 @@ class AddGoal extends Component{
   };
 }
 
-export default AddGoal;
+function mapStateToProps(state){
+  const { email } = this.state;
+  return {
+    email
+  }
+}
+
+export default connect(mapStateToProps, null)(AddGoal);

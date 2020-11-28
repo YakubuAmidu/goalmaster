@@ -12,7 +12,7 @@ class App extends Component {
     return (
       <div>
       <h3>Goals</h3>
-      <div>Add Goals</div>
+      <AddGoal />
       <div>Goal List</div>
       <button
       className="btn btn-danger"

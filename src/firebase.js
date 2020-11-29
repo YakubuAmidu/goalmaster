@@ -1,5 +1,4 @@
-import firebase from "firebase/app";
-require('firebase/auth');
+import * as firebase from 'firebase';
 
 const config = {
   apiKey: "AIzaSyBBEOZdOpgoTaW3Ps79Gs3KtmTFjzS-N6I",
@@ -11,6 +10,6 @@ const config = {
   appId: "1:514959592212:web:d567bbba65ddc9755bd001",
   measurementId: "G-XTN8ZPF9TC"
 };
-
 export const firebaseApp = firebase.initializeApp(config);
-export const goalRef = firebase.database().ref("goals");
+export const goalRef = firebase.database().ref('goals');
+export const completeGoalRef = firebase.database().ref('completeGoals');

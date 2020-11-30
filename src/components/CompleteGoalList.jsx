@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { setCompleted } from "../actions";
 import { completeGoalRef } from "../firebase";
 
 class CompleteGoalList extends Component{
@@ -10,6 +12,7 @@ class CompleteGoalList extends Component{
         completeGoals.push({ email, title });
       })
       console.log("completeGoals", completeGoals);
+      this.props.setCompleted(completeGoals);
     })
   }
 
@@ -22,4 +25,4 @@ class CompleteGoalList extends Component{
   }
 }
 
-export default CompleteGoalList;
+export default connect(null, { setCompleted })(CompleteGoalList);

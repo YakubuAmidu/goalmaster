@@ -11,12 +11,13 @@ class CompleteGoalList extends Component{
         const { email, title } = completeGoal.val();
         completeGoals.push({ email, title });
       })
-      console.log("completeGoals", completeGoals);
       this.props.setCompleted(completeGoals);
     })
   }
 
   render(){
+    console.log("this.props.completeGoals", this.props.completeGoals);
+
     return(
       <div>
         <h1>CompleteGoalList</h1>
@@ -25,4 +26,11 @@ class CompleteGoalList extends Component{
   }
 }
 
-export default connect(null, { setCompleted })(CompleteGoalList);
+function mapStateToProps(state){
+  const { completeGoals } = state;
+  return{
+    completeGoals
+  }
+}
+
+export default connect(mapStateToProps, { setCompleted })(CompleteGoalList);

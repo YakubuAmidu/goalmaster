@@ -30,6 +30,17 @@ class CompleteGoalList extends Component{
             )
           })
         }
+
+        clearCompleted(){
+          completeGoalRef.set([])
+        }
+
+        <button
+        className="btn btn-primary"
+        onClick={() => this.clearCompleted()}
+        >
+        Clear all
+        </button>
       </div>
     )
   }

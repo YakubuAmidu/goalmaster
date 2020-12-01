@@ -20,7 +20,16 @@ class CompleteGoalList extends Component{
 
     return(
       <div>
-        <h1>CompleteGoalList</h1>
+        {
+          this.completeGoals.map((completeGoal, index) => {
+            const { title, email } = completeGoal;
+            return (
+              <div key={index}>
+               <strong>{title}</strong> completed by <em>{email}</em>
+              </div>
+            )
+          })
+        }
       </div>
     )
   }
